@@ -72,7 +72,12 @@ lesson_data = lessons.get(lesson)
 if lesson_data:
     st.header(f"📚 Lesson: {lesson}")
     st.subheader("📖 Reading")
-    st.markdown(f"[Click here to read more]({lesson_data['reading']})")
+    reading = lesson_data.get("reading")
+    if isinstance(reading, dict):
+        for title, url in reading.items():
+            st.markdown(f"- [{title}]({url})")
+    else:
+        st.markdown(f"[Click here to read more]({reading})")
 
     st.subheader("🎥 Explainer Video")
     st.video(lesson_data["video"])
