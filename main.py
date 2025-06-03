@@ -65,7 +65,7 @@ def run_cpp_code(code):
         run_result = subprocess.run([tmp_file.name + ".out"], capture_output=True, text=True)
         return run_result.stdout if run_result.returncode == 0 else run_result.stderr
 
-# -------------------- Lesson Data (Omitted for brevity, assume it's there) --------------------
+# Lesson data loaded from lesson_data.py
 from lesson_data import lessons  # Your existing lessons dictionary should be moved to a separate 'lesson_data.py'
 
 lesson_data = lessons.get(lesson)
